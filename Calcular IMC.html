@@ -1,0 +1,55 @@
+<!DOCTYPE html>
+<html lang='pt'>
+<head>
+	<title>Calcular IMC</title>
+	<link rel="stylesheet" href="application.css">
+</head>
+<body>
+	<main>
+		<div class="logo">
+			<img src="logo.png" alt="Logo IMC" width="85" height="85">
+		</div>
+
+		<h1 class="title">Calcular IMC</h1>
+		<p class="text">IMC é a sigla para Índice de Massa Corporal,que é um cálculo que serve para avaliar se a pessoa está dentro do seu peso ideal em relação à altura.</p>
+      <table width="354" border="0" align="center" cellpadding="0" cellspacing="0">
+	  <tr>
+	    <td width="163">Informe seu peso:</td>
+	    <td width="145"><input type="number" class="peso" name="peso"></td>
+      </tr>
+	  <tr>
+	    <td>Informe sua altura:</td>
+	    <td><input type="number" class="altura" name="altura"></td>
+      </tr>
+	  <tr>
+	    <td colspan="2" align="center"><input type="button" name="Calcular"  class="btn" value="Calcular"></td>
+	    </tr>
+      </table>
+      <span class="resultado"></span>
+    </main>
+</body>
+<script type="text/javascript">
+	btn =document.querySelector(".btn");
+	btn.addEventListener("click", ()=>{
+		peso =parseFloat(document.querySelector(".peso").value);
+		altura =parseFloat(document.querySelector(".altura").value);
+		resultado = peso / (altura*altura);
+
+		if(resultado < 18.5)
+			resultado += " Abaixo do peso";
+		if(resultado > 18.5 && resultado < 24.9)
+			resultado += " Peso normal";
+		if(resultado > 25 && resultado < 29.9)
+			resultado += " Sobrepeso";
+		if(resultado > 30 && resultado < 34.9)
+			resultado += " Obesidade grau 1";
+		if(resultado > 35 && resultado < 39.9)
+			resultado += " Obesidade grau 2";
+		if(resultado > 40)
+			resultado += " Obesidade grau 3";			
+		resultado = "O resultado do seu IMC é: " + resultado;
+		document.querySelector(".resultado").innerHTML = resultado;		
+	});
+</script> 
+</html>
+ 
