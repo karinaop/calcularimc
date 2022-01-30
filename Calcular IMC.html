@@ -34,6 +34,7 @@
 		peso =parseFloat(document.querySelector(".peso").value);
 		altura =parseFloat(document.querySelector(".altura").value);
 		resultado = peso / (altura*altura);
+		resultado = resultado.toFixed(2)
 
 		if(resultado < 18.5)
 			resultado += " Abaixo do peso";
